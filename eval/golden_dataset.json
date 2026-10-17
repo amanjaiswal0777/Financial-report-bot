@@ -1,0 +1,137 @@
+[
+  {
+    "input": "What were HCLTech's revenue from operations and profit for the period for the quarter ended September 30, 2026?",
+    "expected_output": "HCLTech reported revenue from operations of ₹35,620 crore and profit for the period of ₹5,132 crore for the quarter ended September 30, 2026.",
+    "additional_metadata": {
+      "id": 1,
+      "source_page": 2,
+      "type": "factual"
+    }
+  },
+  {
+    "input": "Revenue from operations increased from ₹31,942 crore in the quarter ended September 30, 2025 to ₹35,620 crore in the quarter ended September 30, 2026. What was the increase?",
+    "expected_output": "The increase in revenue from operations was ₹3,678 crore.",
+    "additional_metadata": {
+      "id": 2,
+      "source_page": 2,
+      "type": "calculation"
+    }
+  },
+  {
+    "input": "What were the main expense components reported by HCLTech for the quarter ended September 30, 2026?",
+    "expected_output": "The reported expense components included purchase of stock-in-trade, changes in inventories of stock-in-trade, employee benefits expense, outsourcing costs, finance costs, depreciation and amortization expense, and other expenses. Total expenses were ₹29,349 crore.",
+    "additional_metadata": {
+      "id": 3,
+      "source_page": 2,
+      "type": "subjective"
+    }
+  },
+  {
+    "input": "How did HCLTech's profit for the period change between the quarters ended September 30, 2025 and September 30, 2026?",
+    "expected_output": "Profit for the period increased from ₹4,236 crore in the quarter ended September 30, 2025 to ₹5,132 crore in the quarter ended September 30, 2026, an increase of ₹896 crore.",
+    "additional_metadata": {
+      "id": 4,
+      "source_page": 2,
+      "type": "comparison_and_calculation"
+    }
+  },
+  {
+    "input": "What did the Board of Directors decide regarding the interim dividend for FY 2026-27?",
+    "expected_output": "The Board of Directors declared an interim dividend of ₹12 per equity share of ₹2 each for FY 2026-27.",
+    "additional_metadata": {
+      "id": 5,
+      "source_page": 1,
+      "type": "subjective"
+    }
+  },
+  {
+    "input": "What were the record date and payment date for the interim dividend declared by HCLTech?",
+    "expected_output": "The record date was October 16, 2026, and the payment date was October 26, 2026.",
+    "additional_metadata": {
+      "id": 6,
+      "source_page": 1,
+      "type": "factual"
+    }
+  },
+  {
+    "input": "What is the difference between HCLTech's basic and diluted earnings per share for the quarter ended September 30, 2026?",
+    "expected_output": "Basic EPS was ₹18.96 and diluted EPS was ₹18.93. Therefore, the difference was ₹0.03 per share.",
+    "additional_metadata": {
+      "id": 7,
+      "source_page": 2,
+      "type": "calculation"
+    }
+  },
+  {
+    "input": "Which HCLTech business segment generated the highest external revenue in the quarter ended September 30, 2026?",
+    "expected_output": "IT and Business Services generated the highest external revenue, at ₹26,938 crore. Engineering and R&D Services generated ₹5,973 crore and HCL Software generated ₹2,709 crore.",
+    "additional_metadata": {
+      "id": 8,
+      "source_page": 3,
+      "type": "comparison"
+    }
+  },
+  {
+    "input": "What was HCLTech's total tax expense for the quarter ended September 30, 2026, and what were its two components?",
+    "expected_output": "Total tax expense was ₹1,335 crore. It consisted of current tax of ₹1,340 crore and a deferred tax credit of ₹5 crore.",
+    "additional_metadata": {
+      "id": 9,
+      "source_page": 2,
+      "type": "factual"
+    }
+  },
+  {
+    "input": "What was HCLTech's total comprehensive income for the quarter ended September 30, 2026?",
+    "expected_output": "Total comprehensive income for the period was ₹5,672 crore.",
+    "additional_metadata": {
+      "id": 10,
+      "source_page": 2,
+      "type": "factual"
+    }
+  },
+  {
+    "input": "Why does the limited review report state that it does not express an audit opinion?",
+    "expected_output": "The report states that a review is substantially less in scope than an audit conducted in accordance with Standards on Auditing. Therefore, the review does not enable the auditors to obtain assurance that they would become aware of all significant matters that might be identified in an audit, and accordingly no audit opinion is expressed.",
+    "additional_metadata": {
+      "id": 11,
+      "source_page": 10,
+      "type": "subjective"
+    }
+  },
+  {
+    "input": "According to the report, what accounting standard was used in preparing HCLTech's interim financial results?",
+    "expected_output": "The interim financial results were prepared in accordance with the recognition and measurement principles laid down in Indian Accounting Standard 34 (Ind AS 34), along with other accounting principles generally accepted in India and the applicable Listing Regulations.",
+    "additional_metadata": {
+      "id": 12,
+      "source_page": 10,
+      "type": "subjective"
+    }
+  },
+  {
+    "input": "What significant additions to HCLTech's group structure are mentioned at the end of the list of entities included in the consolidated financial results?",
+    "expected_output": "HCLTech Engineering and AI Solutions Private Limited was acquired on July 31, 2026 and is listed as a subsidiary. HCLTech AI Platforms Limited was incorporated on July 31, 2026 and is a subsidiary, while HCLTech AI Platforms SPV Limited was incorporated on September 28, 2026 and is also a subsidiary. Axonwise Private Limited, effective June 25, 2026, is listed as an associate.",
+    "additional_metadata": {
+      "id": 13,
+      "source_page": 17,
+      "type": "subjective"
+    }
+  },
+  {
+    "input": "What was HCLTech's profit before tax for the quarter ended September 30, 2026?",
+    "expected_output": "HCLTech's profit before tax was ₹6,467 crore for the quarter ended September 30, 2026.",
+    "additional_metadata": {
+      "id": 14,
+      "source_page": 2,
+      "type": "factual"
+    }
+  },
+  {
+    "input": "The Board meeting on October 12, 2026 was scheduled from 1:00 PM to 4:00 PM IST. How long did the meeting last?",
+    "expected_output": "The Board meeting lasted 3 hours.",
+    "additional_metadata": {
+      "id": 15,
+      "source_page": 1,
+      "type": "calculation"
+    }
+  }
+]

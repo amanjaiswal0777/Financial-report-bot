@@ -1,0 +1,4 @@
+python ask.py "What was the total revenue in FY24?"
+
+python ask.py "What was the total revenue in FY24?" --show-chunks
+Use --show-chunks while testing. It prints what the search actually retrieved
