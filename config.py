@@ -25,6 +25,12 @@ CHUNK_OVERLAP = 200
 # Retrieval
 TOP_K = 8
 
+# Reranking (v1): fetch a wide candidate pool, rerank, keep TOP_K.
+# Set USE_RERANKER = False to reproduce the v0 naive baseline exactly.
+USE_RERANKER = True
+RERANKER_MODEL = "BAAI/bge-reranker-base"
+FETCH_K = 30
+
 # LLM (set in .env)
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai")
 LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")

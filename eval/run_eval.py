@@ -6,6 +6,7 @@ Usage (from project root):
     python eval/run_eval.py --version v0_naive --reasons     # also ask judge for reasons
 """
 import argparse
+import importlib
 import json
 import os
 import sys
@@ -19,12 +20,11 @@ sys.path.insert(0, str(ROOT))
 os.environ.setdefault("DEEPEVAL_TELEMETRY_OPT_OUT", "YES")
 
 import config  # noqa: E402  (also loads .env)
-from deepeval.metrics import (  # noqa: E402
-    AnswerRelevancyMetric,
-    ContextualPrecisionMetric,
-    ContextualRecallMetric,
-    FaithfulnessMetric,
-)
+_deepeval_metrics = importlib.import_module("deepeval.metrics")
+AnswerRelevancyMetric = _deepeval_metrics.AnswerRelevancyMetric
+ContextualPrecisionMetric = _deepeval_metrics.ContextualPrecisionMetric
+ContextualRecallMetric = _deepeval_metrics.ContextualRecallMetric
+FaithfulnessMetric = _deepeval_metrics.FaithfulnessMetric
 from deepeval.test_case import LLMTestCase  # noqa: E402
 from src.pipeline import answer  # noqa: E402
 
@@ -99,15 +99,20 @@ def main():
     parser.add_argument("--reasons", action="store_true", help="judge explains each score (more tokens)")
     args = parser.parse_args()
 
+    print(f"Loading golden set: {args.golden}", flush=True)
     with open(args.golden, encoding="utf-8") as golden_file:
         golden = json.load(golden_file)
     if args.limit:
         golden = golden[: args.limit]
+    if not golden:
+        raise ValueError(f"Golden set is empty: {args.golden}")
+    print(f"Loaded {len(golden)} questions; judge={args.judge}", flush=True)
 
     rows = []
     for i, item in enumerate(golden, 1):
         t0 = time.time()
         question = question_text(item)
+        print(f"[{i}/{len(golden)}] Generating answer...", flush=True)
         out = answer(question)
         retrieval_context = [c["text"] for c in out["chunks"]]
         retrieved_pages = sorted({c["page"] for c in out["chunks"]})
@@ -121,6 +126,7 @@ def main():
 
         metrics = {}
         for name, metric in build_metrics(args.judge, args.threshold, args.reasons).items():
+            print(f"[{i}/{len(golden)}] Scoring {name}...", flush=True)
             try:
                 metric.measure(test_case)
                 metrics[name] = {
@@ -130,6 +136,9 @@ def main():
                 }
             except Exception as e:  # keep going if one metric fails
                 metrics[name] = {"score": None, "passed": None, "error": str(e)}
+            score = metrics[name]["score"]
+            shown_score = round(score, 3) if score is not None else "ERR"
+            print(f"    {name}: {shown_score}", flush=True)
 
         pages = expected_pages(item)
         page_hit = any(p in retrieved_pages for p in pages) if pages else None
@@ -147,7 +156,7 @@ def main():
             }
         )
         short = {k: (round(v["score"], 2) if v.get("score") is not None else "ERR") for k, v in metrics.items()}
-        print(f"[{i}/{len(golden)}] {time.time() - t0:.0f}s page_hit={page_hit} {short}")
+        print(f"[{i}/{len(golden)}] {time.time() - t0:.0f}s page_hit={page_hit} {short}", flush=True)
 
     result = {
         "version": args.version,
@@ -170,13 +179,13 @@ def main():
     out_path = RESULTS_DIR / f"{args.version}.json"
     json.dump(result, open(out_path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
 
-    print(f"\n=== {args.version} ({len(rows)} questions, judge={args.judge}) ===")
-    print(f"{'metric':<22}{'mean':>8}{'pass rate':>12}")
+    print(f"\n=== {args.version} ({len(rows)} questions, judge={args.judge}) ===", flush=True)
+    print(f"{'metric':<22}{'mean':>8}{'pass rate':>12}", flush=True)
     for name in METRIC_NAMES:
         s = result["summary"][name]
-        print(f"{name:<22}{str(s['mean']):>8}{str(s['pass_rate']):>12}")
-    print(f"{'page_hit_rate':<22}{str(result['summary']['page_hit_rate']):>8}")
-    print(f"\nSaved: {out_path}")
+        print(f"{name:<22}{str(s['mean']):>8}{str(s['pass_rate']):>12}", flush=True)
+    print(f"{'page_hit_rate':<22}{str(result['summary']['page_hit_rate']):>8}", flush=True)
+    print(f"\nSaved: {out_path}", flush=True)
 
 
 if __name__ == "__main__":

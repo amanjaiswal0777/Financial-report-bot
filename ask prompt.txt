@@ -1,4 +1,21 @@
+
+python ingest.py data/your_report.pdf
+
 python ask.py "What was the total revenue in FY24?"
 
 python ask.py "What was the total revenue in FY24?" --show-chunks
 Use --show-chunks while testing. It prints what the search actually retrieved
+
+### FOR EVAL ###
+
+pip install -r requirements.txt
+
+# smoke test on 3 questions first (cheap)
+python eval/run_eval.py --version v0_naive --limit 3
+
+# full baseline on all 15
+python eval/run_eval.py --version v0_naive
+
+# later, after each improvement
+python eval/run_eval.py --version v1_hybrid
+python eval/compare.py        # prints the markdown table for your README
