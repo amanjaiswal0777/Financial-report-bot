@@ -12,3 +12,4 @@ PyMuPDF
 rapidocr-onnxruntime
 python-dotenv
 deepeval
+streamlit

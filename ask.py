@@ -17,7 +17,8 @@ def run(question: str, show_chunks: bool):
     print(f"\nRetrieved from pages: {pages}")
     if show_chunks:
         for i, c in enumerate(result["chunks"], 1):
-            print(f"\n--- chunk {i} | page {c['page']} | distance {c['distance']} ---")
+            print(f"\n--- chunk {i} | page {c['page']} | score {c['distance']} "
+      f"| semantic rank {c.get('semantic_rank')} | bm25 rank {c.get('bm25_rank')} ---")
             print(c["text"])
 
 

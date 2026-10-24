@@ -1,0 +1,607 @@
+{
+  "version": "version_2_vodafone",
+  "timestamp": "2026-10-20T23:44:11",
+  "config": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "top_k": 8,
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "use_reranker": true,
+    "reranker_model": "BAAI/bge-reranker-base",
+    "fetch_k": 30,
+    "use_hybrid": true,
+    "semantic_k": 30,
+    "bm25_k": 30,
+    "rrf_k": 60,
+    "llm_model": "gpt-4o-mini",
+    "judge_model": "gpt-4o-mini",
+    "threshold": 0.5,
+    "n_questions": 15
+  },
+  "summary": {
+    "contextual_recall": {
+      "mean": 0.978,
+      "pass_rate": 1.0
+    },
+    "contextual_precision": {
+      "mean": 0.902,
+      "pass_rate": 1.0
+    },
+    "faithfulness": {
+      "mean": 0.833,
+      "pass_rate": 0.867
+    },
+    "answer_relevancy": {
+      "mean": 1.0,
+      "pass_rate": 1.0
+    },
+    "page_hit_rate": null
+  },
+  "results": [
+    {
+      "id": "q01",
+      "question": "What were Vodafone Group's total revenue and Group service revenue in FY26?",
+      "expected": "Vodafone Group's total revenue was €40.461 billion and Group service revenue was €33.480 billion in FY26.",
+      "actual": "Vodafone Group's total revenue in FY26 was €40.5 billion, and Group service revenue was €33.5 billion (Page 8, Page 14).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        3,
+        6,
+        8,
+        14,
+        230,
+        231
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q02",
+      "question": "What was Vodafone's Adjusted EBITDAaL in FY26?",
+      "expected": "Vodafone's Adjusted EBITDAaL was €11.351 billion in FY26.",
+      "actual": "Vodafone's Adjusted EBITDAaL in FY26 was €11.4 billion (Page 3).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        3,
+        8,
+        14,
+        16,
+        17,
+        229,
+        231
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q03",
+      "question": "What were Vodafone's adjusted free cash flow and net debt in FY26?",
+      "expected": "Adjusted free cash flow was €2.621 billion and net debt was €25.411 billion in FY26.",
+      "actual": "Vodafone's adjusted free cash flow in FY26 was €2.6 billion, and net debt was €25.4 billion (Page 8).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        3,
+        6,
+        8,
+        22,
+        234,
+        235
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 0.6666666666666666,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 0.5,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q04",
+      "question": "What are the three strategic priorities of Vodafone?",
+      "expected": "Vodafone's three strategic priorities are Customers, Simplicity and Growth.",
+      "actual": "The three strategic priorities of Vodafone are Customers, Simplicity, and Growth (Page 75).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        9,
+        75,
+        84,
+        87,
+        88,
+        100
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 0.5,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q05",
+      "question": "Approximately how many customers does Vodafone serve directly, and in how many countries?",
+      "expected": "Vodafone provides mobile and fixed services to approximately 300 million customers in 15 countries.",
+      "actual": "Vodafone serves approximately 300 million customers directly in 15 countries (Page 4).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        4,
+        6,
+        16,
+        17,
+        35,
+        231
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 0.0,
+          "passed": false,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q06",
+      "question": "How many FinTech users did Vodafone have according to its business model?",
+      "expected": "Vodafone had over 59 million FinTech users.",
+      "actual": "Vodafone had over 59 million FinTech users according to its business model (Page 4).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        4,
+        7,
+        8,
+        17,
+        25,
+        39
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q07",
+      "question": "What is Vodafone Business's addressable market and how many customers does it serve?",
+      "expected": "Vodafone Business has a €160 billion addressable market and serves 5 million customers.",
+      "actual": "Vodafone Business's addressable market is €160 billion, and it serves 5 million customers (Page 4).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        4,
+        6,
+        16,
+        17,
+        38,
+        39
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q08",
+      "question": "How many IoT connections did Vodafone Business report?",
+      "expected": "Vodafone Business reported 244 million IoT connections.",
+      "actual": "Vodafone Business reported 244 million IoT connections. (Page 4)",
+      "expected_pages": [],
+      "retrieved_pages": [
+        4,
+        5,
+        7,
+        17,
+        39,
+        87
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 0.7,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q09",
+      "question": "What was Vodafone's organic service revenue growth in FY26?",
+      "expected": "Vodafone's organic service revenue growth was 5.4% in FY26.",
+      "actual": "Vodafone's organic service revenue growth in FY26 was +5.4%. (Page 3)",
+      "expected_pages": [],
+      "retrieved_pages": [
+        3,
+        6,
+        8,
+        14,
+        230
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q10",
+      "question": "What was Vodafone's leverage position in FY26, and what was its target range?",
+      "expected": "Vodafone's leverage position was 2.2x, compared with a target range of 2.25x to 2.75x.",
+      "actual": "Vodafone's leverage position in FY26 was 2.2x, with a target range of 2.25–2.75x (Page 6).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        3,
+        6,
+        8,
+        18,
+        22
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q11",
+      "question": "What percentage of purchased electricity came from renewable sources in FY26?",
+      "expected": "100% of purchased electricity came from renewable sources in FY26.",
+      "actual": "100% of purchased electricity came from renewable sources in FY26. (Page 31)",
+      "expected_pages": [],
+      "retrieved_pages": [
+        10,
+        25,
+        30,
+        31,
+        60
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 0.7,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q12",
+      "question": "What was Vodafone's total energy use in FY26?",
+      "expected": "Vodafone's total energy use was 5,967 GWh in FY26.",
+      "actual": "Vodafone's total energy use in FY26 was 5,967 GWh (Page 31).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        3,
+        10,
+        25,
+        31,
+        32,
+        60
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q13",
+      "question": "What percentage of employees completed Vodafone's 'Doing What's Right' training in FY26?",
+      "expected": "97% of employees completed the 'Doing What's Right' training in FY26.",
+      "actual": "98% of employees completed Vodafone's 'Doing What's Right' training in FY26 (Page 45).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        3,
+        10,
+        25,
+        42,
+        45
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 0.625,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 0.0,
+          "passed": false,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q14",
+      "question": "What was Vodafone's total dividend per share for FY26?",
+      "expected": "Vodafone's total dividend per share for FY26 was 4.6125 eurocents.",
+      "actual": "Vodafone's total dividend per share for FY26 was 4.6125 eurocents (Page 3).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        3,
+        6,
+        14,
+        25
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "q15",
+      "question": "How is Vodafone using Generative AI and agentic AI according to the annual report?",
+      "expected": "Vodafone says Generative AI is being used across areas such as customer service, marketing, software delivery and IT operations to improve decision-making and productivity. Agentic AI is being used to plan and complete tasks across applications, with potential applications in customer journeys, commerce, proactive care, testing, service assurance and back-office workflows.",
+      "actual": "Vodafone is using Generative AI to improve decision-making and productivity across functions such as customer service, marketing, software delivery, and IT operations. Agentic AI is being utilized to automate tasks across applications, enhancing customer experiences and enabling new business models like agent-enabled commerce and proactive care (Page 7).",
+      "expected_pages": [],
+      "retrieved_pages": [
+        7,
+        12,
+        26,
+        55,
+        58,
+        87
+      ],
+      "page_hit": null,
+      "metrics": {
+        "contextual_recall": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "contextual_precision": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "passed": true,
+          "reason": null
+        }
+      }
+    }
+  ]
+}

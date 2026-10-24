@@ -35,3 +35,10 @@ FETCH_K = 30
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai")
 LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
 LLM_TEMPERATURE = 0
+# Hybrid search (v3): semantic + BM25, fused with Reciprocal Rank Fusion.
+# Set USE_HYBRID = False to reproduce v0 / v2 exactly.
+USE_HYBRID = True
+SEMANTIC_K = 30   # candidates from semantic search
+BM25_K = 30       # candidates from keyword search
+RRF_K = 60        # standard RRF constant
+# FETCH_K (above) is the fused pool size handed to the reranker
