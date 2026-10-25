@@ -10,6 +10,7 @@ chromadb
 pypdf
 PyMuPDF
 rapidocr-onnxruntime
+rank-bm25
 python-dotenv
 deepeval
 streamlit

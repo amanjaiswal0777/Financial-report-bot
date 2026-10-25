@@ -35,7 +35,11 @@ def indexed_source():
     if not config.CHROMA_DIR.exists():
         return None
     try:
-        got = load_vectorstore().get(limit=1, include=["metadatas"])
+        import chromadb
+
+        client = chromadb.PersistentClient(path=str(config.CHROMA_DIR))
+        collection = client.get_collection(config.COLLECTION_NAME)
+        got = collection.get(limit=1, include=["metadatas"])
         metas = got.get("metadatas") or []
         return metas[0].get("source") if metas else None
     except Exception:
